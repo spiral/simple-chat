@@ -1,0 +1,14 @@
+version: "3.7"
+
+services:
+  db:
+    container_name: db
+    image: postgres
+    environment:
+      POSTGRES_USER: homestead
+      POSTGRES_DB: homestead
+      POSTGRES_PASSWORD: secret
+    ports:
+      - "5432:5432"
+    logging:
+      driver: none

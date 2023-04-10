@@ -1,0 +1,38 @@
+version: '2.7'
+
+rpc:
+  listen: 'tcp://127.0.0.1:6001'
+
+server:
+  command: 'php app.php'
+  relay: pipes
+
+http:
+  address: 0.0.0.0:8080
+  middleware:
+    - gzip
+    - static
+  static:
+    dir: public
+    forbid:
+      - .php
+      - .htaccess
+  pool:
+    debug: false
+    num_workers: 2
+    supervisor:
+      max_worker_memory: 100
+
+service:
+  cetrifugo:
+    service_name_in_log: true
+    remain_after_exit: true
+    restart_sec: 1
+    command: "./bin/centrifugo --config=centrifugo.json"
+
+centrifuge:
+  proxy_address: tcp://127.0.0.1:10001
+  grpc_api_address: tcp://127.0.0.1:10000
+  pool:
+    reset_timeout: 10
+    num_workers: 2

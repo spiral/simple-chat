@@ -1,0 +1,22 @@
+{
+  "name": "frontend",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "pinia": "^2.0.32",
+    "vue": "^3.2.47"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^4.0.0",
+    "centrifuge": "^3.1.0",
+    "install": "^0.13.0",
+    "laravel-vite-plugin": "^0.7.4",
+    "npm": "^9.5.1",
+    "vite": "^4.1.4"
+  }
+}

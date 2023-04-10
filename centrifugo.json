@@ -1,0 +1,22 @@
+{
+  "admin": true,
+  "admin_password": "secret",
+  "admin_secret": "secret",
+  "allowed_origins": [
+    "*"
+  ],
+  "publish": true,
+  "proxy_publish": true,
+  "proxy_subscribe": true,
+  "proxy_connect": true,
+  "allow_subscribe_for_client": true,
+  "address": "127.0.0.1",
+  "port": 8081,
+  "grpc_api": true,
+  "grpc_api_address": "127.0.0.1",
+  "grpc_api_port": 10000,
+  "proxy_connect_endpoint": "grpc://127.0.0.1:10001",
+  "proxy_connect_timeout": "10s",
+  "proxy_rpc_endpoint": "grpc://127.0.0.1:10001",
+  "proxy_rpc_timeout": "10s"
+}

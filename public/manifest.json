@@ -1,0 +1,7 @@
+{
+  "src/main.js": {
+    "file": "frontend.mjs",
+    "isEntry": true,
+    "src": "src/main.js"
+  }
+}
