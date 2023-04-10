@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Application\Bootloader;
 
-use App\Entrypoint\Web\Middleware\HandleAuthenticationExceptions;
+use App\Endpoint\Web\Middleware\HandleAuthenticationExceptions;
 use Nyholm\Psr7\Uri;
 use Spiral\Auth\Middleware\AuthMiddleware;
 use Spiral\Auth\Middleware\Firewall\RedirectFirewall;

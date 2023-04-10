@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Entrypoint\Web\Filter;
+namespace App\Endpoint\Web\Filter;
 
 use Spiral\Filters\Attribute\Input\Attribute;
 use Spiral\Filters\Model\Filter;

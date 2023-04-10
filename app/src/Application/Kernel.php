@@ -16,7 +16,6 @@ use Spiral\DotEnv\Bootloader\DotenvBootloader;
 use Spiral\Monolog\Bootloader\MonologBootloader;
 use Spiral\Nyholm\Bootloader\NyholmBootloader;
 use Spiral\Prototype\Bootloader\PrototypeBootloader;
-use Spiral\Queue\Bootloader\QueueBootloader;
 use Spiral\RoadRunnerBridge\Bootloader as RoadRunnerBridge;
 use Spiral\Scaffolder\Bootloader\ScaffolderBootloader;
 use Spiral\Stempler\Bootloader\StemplerBootloader;

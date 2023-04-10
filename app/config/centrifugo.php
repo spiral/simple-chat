@@ -1,8 +1,8 @@
 <?php
 
-use App\Entrypoint\Centrifugo\AuthenticatorInterceptor;
-use App\Entrypoint\Centrifugo\ConnectService;
-use App\Entrypoint\Centrifugo\RPCService;
+use App\Endpoint\Centrifugo\ConnectService;
+use App\Endpoint\Centrifugo\Interceptor\AuthenticatorInterceptor;
+use App\Endpoint\Centrifugo\RPCService;
 use RoadRunner\Centrifugo\Request\RequestType;
 
 return [

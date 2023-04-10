@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace App\Entrypoint\Web\Controller;
+namespace App\Endpoint\Web\Controller;
 
 use App\Application\Exception\InvalidCredentialsException;
 use App\Application\Exception\UserNotFoundException;
-use App\Entrypoint\Web\Filter\LoginRequest;
+use App\Endpoint\Web\Filter\LoginRequest;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use Spiral\Prototype\Traits\PrototypeTrait;

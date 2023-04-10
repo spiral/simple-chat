@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Entrypoint\Centrifugo;
+namespace App\Endpoint\Centrifugo;
 
 use App\Entity\User;
 use RoadRunner\Centrifugo\Payload\ConnectResponse;

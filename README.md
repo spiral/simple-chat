@@ -1,33 +1,23 @@
-# My awesome Web application
+# A real-time chat application
 
-Hello developer! Welcome to your new awesome `Web` application built with the Spiral framework.
+Hello developer! Welcome to your new awesome demo application built with the Spiral framework.
 
-We're excited that you've chosen Spiral for your project and we hope that our installer package has made the
-installation process a breeze.
+Real-time chat applications have become increasingly popular in recent years, and implementing WebSocket servers to
+enable bidirectional communication has become essential for building such applications. However, creating this kind of
+can be a challenging task.
 
-To help you get started, we've provided some instructions for configuring the individual packages that were installed.
-Depending on the packages you chose during the installation, you'll find the following next steps:
+Fortunately, there are new frameworks and tools available that make it easier to set up WebSocket servers. In this
+tutorial, we will demonstrate how to create a real-time chat application using the Spiral Framework, RoadRunner, and
+Centrifugo with authentication and bidirectional communication.
 
-## Next Steps
+Spiral Framework offers an array of seamlessly integrated components, which makes it an ideal choice for building
+complex applications. In this tutorial, we will guide you on creating a simple real-time chat application using Spiral
+Framework, Centrifugo, RoadRunner, and ORM.
 
-## Configuration
-1. Please, configure the environment variables in the .env file at the application's root.
-2. Read documentation about Spiral Framework: https://spiral.dev/docs
-### RoadRunnerBridge
-1. The settings for RoadRunner are in a file named .rr.yaml at the main folder of the app.
-2. Documentation: https://spiral.dev/docs/start-server
-### CycleBridge
-1. Database configuration file: app/config/database.php
-2. Migrations configuration file: app/config/migration.php
-3. Cycle ORM configuration file: app/config/cycle.php
-4. Documentation: https://spiral.dev/docs/basics-orm
-### SpiralValidator
-1. Read more about validation in the Spiral Framework: https://spiral.dev/docs/validation-factory
-2. Documentation: https://spiral.dev/docs/validation-spiral
-### LeagueEvent
-1. Documentation: https://spiral.dev/docs/advanced-events
+You can find a tutorial on how to build this application on the Spiral
+website - [Real-time chat application](https://spiral.dev/docs/cookbook-simple-chat)
 
-## Usage
+## Run the application
 
 To start HTTP server using RoadRunner, run the following command in your project directory:
 
@@ -35,12 +25,36 @@ To start HTTP server using RoadRunner, run the following command in your project
 ./rr serve
 ```
 
-Once the server is running, you can access your application in a web browser by going to the following
-URL: http://127.0.0.1:8080.
+Open the application in your browser: http://127.0.0.1:8080 and use `bill` or `john` as a username and `secret` as a
+password to login. After authentication, you will be redirected to the chat page where you can send messages to the
+server.
 
 > **Note**:
 > For more information on how to use RoadRunner with Spiral, please consult
 > the [official documentation](https://spiral.dev/docs/start-server).
+
+
+To help you get started, we've provided some instructions for configuring the individual packages that were installed.
+Depending on the packages you chose during the installation, you'll find the following next steps:
+
+## Next Steps
+
+## Configuration
+
+1. Please, configure the environment variables in the `.env` file at the application's root.
+2. Read documentation about Spiral Framework: https://spiral.dev/docs
+
+### RoadRunnerBridge
+
+1. The settings for RoadRunner are in a file named `.rr.yaml` at the main folder of the app.
+2. Documentation: https://spiral.dev/docs/start-server
+
+### CycleBridge
+
+1. Database configuration file: `app/config/database.php`
+2. Migrations configuration file: `app/config/migration.php`
+3. Cycle ORM configuration file: `app/config/cycle.php`
+4. Documentation: https://spiral.dev/docs/basics-orm
 
 ## Console commands
 
@@ -55,25 +69,6 @@ composer rr:download
 ./vendor/bin/rr get-binary
 ```
 
-### Download or update protoc-gen GRPC plugin
-
-Allows to install the latest version of the `protoc-gen-php-grpc` file compatible with your environment (operating
-system, processor architecture, runtime, etc...).
-
-```bash
-composer rr:download-protoc
-# or
-./vendor/bin/rr download-protoc-binary
-```
-
-### Generate gRPC proto files
-
-To generate gRPC proto files, run the following command:
-
-```bash
-php app.php grpc:generate
-```
-
 ## Project Structure
 
 If you chose to install the default application skeleton, your project will have the following directory structure:
@@ -83,52 +78,28 @@ If you chose to install the default application skeleton, your project will have
     - Web
         - UserController.php
         - Filter
-            - CreateUserFilter.php
+            - ...
         - Middleware
-            - LocaleMiddleware.php
+            - ...
         - Interceptor
-            - ValidateFiltersInterceptor.php
+            - ...
         - routes.php
-    - Console
+    - Centrifugo
         - Interceptor
-            - PromptRequiredArguments.php
-        - CreateUserCommand.php
-    - RPC
+            - AuthenticatorInterceptor.php
+        - ConnectService.php
         - ...
-    - Temporal
-        - Workflow
-            - ...
-        - Activity
-            - ...
 - Application
     - Bootloader
         - RoutesBootloader.php
         - UserModuleBootloader.php
     - Exception
         - SomeException.php
-        - Renderer
-            - ViewRenderer.php
-    - AppDirectories.php
     - Kernel.php
-- Domain
-    - User
-        - Entity
-            - User.php
-        - Service
-            - StoreUserService.php
-        - Repository
-            - UserRepositoryInterface.php
-        - Exception
-            - UserNotFoundException.php
-- Infrastructure
-    - Persistence
-        - CycleUserRepository.php
-    - CycleORM
-        - Typecaster
-            - UuidTypecast.php
-    - Interceptor
-        - LogInterceptor.php
-        - ExceptionHandlerInterceptor.php
+- Entity
+    - User.php
+- Repository
+    - UserRepositoryInterface.php
 ```
 
 #### Here's a brief explanation of the directories and files in this structure:
@@ -139,14 +110,6 @@ If you chose to install the default application skeleton, your project will have
 - **Application**: This directory contains the core of your application, including the Kernel class that boots your
   application, the Bootloader classes that register services with the container, and the Exception directory that
   contains exception handling logic.
-
-- **Domain**: This directory contains your domain logic, organized by subdomains. For example, an Entity for the User
-  model, a Service for storing new users, a Repository for fetching users from the database, and an Exception for
-  handling user-related errors.
-
-- **Infrastructure**: This directory contains the infrastructure code for your application, including the Persistence
-  directory for database-related code, the CycleORM directory for ORM-related code, and the Interceptor directory for
-  global interceptors.
 
 The project structure we provided is a common structure used in many PHP applications, and it can serve as a starting
 point for your projects By following this structure, you can organize your code in a logical and maintainable

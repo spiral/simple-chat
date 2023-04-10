@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Entrypoint\Centrifugo;
+namespace App\Endpoint\Centrifugo\Interceptor;
 
 use Psr\EventDispatcher\EventDispatcherInterface;
 use RoadRunner\Centrifugo\Request\RequestInterface;

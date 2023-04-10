@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Application\Bootloader;
 
-use App\Entrypoint\Centrifugo\UserActor;
+use App\Endpoint\Centrifugo\UserActor;
 use Spiral\Boot\Bootloader\Bootloader;
 use Spiral\Bootloader\Auth\AuthBootloader;
 

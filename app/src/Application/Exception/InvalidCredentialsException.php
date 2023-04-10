@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Application\Exception;
 
-use App\Exception\Throwable;
+use Throwable;
 
 class InvalidCredentialsException extends AuthenticationException
 {

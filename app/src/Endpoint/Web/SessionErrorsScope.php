@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Entrypoint\Web;
+namespace App\Endpoint\Web;
 
 use Spiral\Prototype\Annotation\Prototyped;
 use Spiral\Prototype\Traits\PrototypeTrait;

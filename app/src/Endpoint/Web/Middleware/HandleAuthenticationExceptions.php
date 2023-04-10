@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Entrypoint\Web\Middleware;
+namespace App\Endpoint\Web\Middleware;
 
 use App\Application\Exception\AuthenticationException;
 use Psr\Http\Message\ResponseInterface;
