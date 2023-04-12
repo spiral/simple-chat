@@ -1,5 +1,7 @@
 # A real-time chat application
 
+![Real time chat](https://user-images.githubusercontent.com/773481/231367651-38986905-b9ab-41ef-b904-2c752c0fa5dd.jpg)
+
 Hello developer! Welcome to your new awesome demo application built with the Spiral framework.
 
 Real-time chat applications have become increasingly popular in recent years, and implementing WebSocket servers to
